@@ -33,13 +33,13 @@
   <script>
 (function () {
   function uploadFile (file) {
-    var body = new FormData();
-    body.append('upload', file)
+    var formData = new FormData();
+    formData.append('upload', file)
     return fetch('/api/upload', {
       method: 'POST',
-      body,
+      body: formData
     }).then(function (response) {
-      return response.json()
+      return response.json();
     });
   }
   function showResult (text) {
